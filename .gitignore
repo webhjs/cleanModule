@@ -1,0 +1,3 @@
+# 忽略node
+node_modules
+dist
