@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const modulesFiles = require.context('@/views/default/testedit/bseEleComponents', true, /\.vue$/)
+const modulesFiles = require.context('@/views/simple-template/home/bseEleComponents', true, /\.vue$/)
 const bseEleComponents = modulesFiles.keys().reduce((modules, modulePath) => {
   const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
   const value = modulesFiles(modulePath)

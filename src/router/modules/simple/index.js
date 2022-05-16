@@ -18,10 +18,10 @@ export const asyncRouterMap = [
     redirect: "/home",
     children: [
       {
-        path: "/home",
-        name: "home",
-        meta: { icon: "document-copy", title: "首页" },
-        component: () => Lazy(import("@/views/simple-template/home"))
+        path: "/iframe",
+        name: "iframe",
+        meta: { icon: "document-copy", title: "框架" },
+        component: () => Lazy(import("@/views/simple-template/home/iframe"))
       }
     ]
   }

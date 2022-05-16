@@ -44,11 +44,11 @@
   </div>
 </template>
 <script>
-import SignEcard from '@/views/default/testedit/SignEcard'
+import SignEcard from '@/views/simple-template/home/SignEcard'
 // 判断是否是bse只读元素
-import timePicker from '@/views/default/test/ui/basic/date-picker'
+// import timePicker from '@/views/simple-template/test/ui/basic/date-picker'
 import History from './historyState.js'
-import AttributeDialog from '@/views/default/testedit/AttributeDialog'
+import AttributeDialog from '@/views/simple-template/home/AttributeDialog'
 // 当前节点是否是bse只读元素
 function isBseNotAllowDeleteElement(node) {
   const str = node.outerHTML
@@ -66,8 +66,8 @@ function guid() {
 }
 
 import Print from './print'
-import select from '@/views/default/test/ui/basic/select'
-import { GET } from '@bse/core/axiosHelper.js'
+// import select from '@/views/simple-template/test/ui/basic/select'
+// import { GET } from '@bse/core/axiosHelper.js'
 export default {
   components: { SignEcard, AttributeDialog },
   data() {
@@ -825,12 +825,12 @@ export default {
         .filter(v => urlRegex.test(v))
       if (!srcList.length) return
       const blobRes = await Promise.all(
-        srcList.map(v =>
-          GET({
-            url: v,
-            responseType: 'blob'
-          })
-        )
+        // srcList.map(v =>
+        //   GET({
+        //     url: v,
+        //     responseType: 'blob'
+        //   })
+        // )
       )
       const blobList = await Promise.all(blobRes.map(blob => this.blobToBase64Sync(blob)))
       const blobListObj = blobList.reduce((pre, cur, idx) => {
@@ -877,7 +877,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="stylus">
 #bse_edit,
 input,
 .bse-element * {
