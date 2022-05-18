@@ -30,6 +30,7 @@
     <el-button @click="redo">重做</el-button>
     <el-button @click="isShowDialog('cavesDialog')">签名</el-button>
     <el-button @click="getBseJsonXml">下载xml</el-button>
+    <el-button @click="insertPicture">插入图片</el-button>
     <div
       :style="{ height, width }"
       :contenteditable="modelMapping[model]"
@@ -44,11 +45,12 @@
   </div>
 </template>
 <script>
-import SignEcard from '@/views/simple-template/home/SignEcard'
+import SignEcard from '@/views/default/testedit/SignEcard'
 // 判断是否是bse只读元素
-// import timePicker from '@/views/simple-template/test/ui/basic/date-picker'
+import timePicker from '@/views/default/test/ui/basic/date-picker'
 import History from './historyState.js'
-import AttributeDialog from '@/views/simple-template/home/AttributeDialog'
+import AttributeDialog from '@/views/default/testedit/AttributeDialog'
+import ImgDragSize from './imgDragSize.js'
 // 当前节点是否是bse只读元素
 function isBseNotAllowDeleteElement(node) {
   const str = node.outerHTML
@@ -66,8 +68,8 @@ function guid() {
 }
 
 import Print from './print'
-// import select from '@/views/simple-template/test/ui/basic/select'
-// import { GET } from '@bse/core/axiosHelper.js'
+import select from '@/views/default/test/ui/basic/select'
+import { GET } from '@bse/core/axiosHelper.js'
 export default {
   components: { SignEcard, AttributeDialog },
   data() {
@@ -793,11 +795,11 @@ export default {
         }
         xml += `<${type || 'default'} ${protoStr}>${insertHtml}</${type || 'default'}>`
       })
-      const schemeStart = `<?xml version="1.0" encoding="UTF-8"?>`
-      const schemeEnd = `</xml>`
+      const schemeStart = `<?xml version="1.0" encoding="UTF-8"?><data version="4.0">`
+      const schemeEnd = `</data></xml>`
       const html = `<html>${encodeURIComponent(content)}</html>`
       xml = `${schemeStart}${xml}${html}${schemeEnd}`
-      this.download_xml('测试.xml', xml)
+      this.download_xml('xml文件导出.xml', xml)
     },
     // #endregion
     blobToBase64Sync(blob) {
@@ -809,6 +811,7 @@ export default {
         reader.readAsDataURL(blob)
       })
     },
+    // 图片转base64
     async convertImgToBase64() {
       const html = this.getContent()
       let imgReg = /<img.*?(?:>|\/>)/gi //匹配图片中的img标签
@@ -825,12 +828,12 @@ export default {
         .filter(v => urlRegex.test(v))
       if (!srcList.length) return
       const blobRes = await Promise.all(
-        // srcList.map(v =>
-        //   GET({
-        //     url: v,
-        //     responseType: 'blob'
-        //   })
-        // )
+        srcList.map(v =>
+          GET({
+            url: v,
+            responseType: 'blob'
+          })
+        )
       )
       const blobList = await Promise.all(blobRes.map(blob => this.blobToBase64Sync(blob)))
       const blobListObj = blobList.reduce((pre, cur, idx) => {
@@ -849,6 +852,29 @@ export default {
         return val
       })
       this.setContent(tmpHtml)
+    },
+    // 插入图片
+    insertPicture() {
+      const input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.click()
+      input.onchange = (e) => {
+        const reader = new FileReader()
+        reader.addEventListener('load', () => {
+          const img = document.createElement('img');
+          img.src = reader.result
+          img.width = "100"
+          img.height = "100"
+          const selection = this.getSelection()
+          if (!selection.focusNode) return
+          const Range = selection.getRangeAt(0)
+          Range.insertNode(img)
+          Range.collapse(false)
+          selection.removeAllRanges()
+          selection.addRange(Range)
+        })
+        reader.readAsDataURL(e.target.files[0]);
+      }
     },
     createdBookMarkTest() {
       this._bookmark = this.createdBookMark()
@@ -873,11 +899,19 @@ export default {
     this._editDom = document.getElementById('bse_edit')
     this.addhiddenPlaceholder()
     this._histroy = new History(this._editDom)
+    new ImgDragSize(this._editDom)
   }
 }
 </script>
 
-<style lang="stylus">
+<style>
+svg, img, canvas, iframe {
+  display: unset;
+}
+*[bse-selected] {
+  outline: 1px dashed #28a670;
+  box-sizing: border-box;
+}
 #bse_edit,
 input,
 .bse-element * {
@@ -947,5 +981,18 @@ p * {
 .placehold-class:empty:before {
   content: attr(placeholder);
   color: #ccc;
+}
+
+#pointerTopLeft, #pointerBottomRight {
+  cursor: nw-resize;
+}
+#pointerTopCenter, #pointerBottomCenter {
+  cursor: n-resize;
+}
+#pointerTopRight, #pointerBottomLeft {
+  cursor: ne-resize;
+}
+#pointerLeftCenter, #pointerRightCenter {
+  cursor: w-resize;
 }
 </style>

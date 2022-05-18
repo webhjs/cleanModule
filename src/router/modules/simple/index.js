@@ -21,7 +21,7 @@ export const asyncRouterMap = [
         path: "/iframe",
         name: "iframe",
         meta: { icon: "document-copy", title: "框架" },
-        component: () => Lazy(import("@/views/simple-template/home/iframe"))
+        component: () => Lazy(import("@/views/simple-template/home/bseedit/iframe"))
       }
     ]
   }
