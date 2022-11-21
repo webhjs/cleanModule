@@ -8,9 +8,10 @@
  */
 import Vue from "vue";
 import Router from "vue-router";
+import path from 'path'
 
 /*读取router配置*/
-import { requireContext } from '@/libs/utils/custom';
+import { requireContext, Lazy } from '@/libs/utils/custom';
 export const modules = requireContext(require.context('./modules', true, /\.js$/))
 // 合并路由信息
 export const routerModules = Object.values(modules).reduce((pre, cur) => {
@@ -34,12 +35,68 @@ if (onResolve || onReject) return originalPush.call(this, location, onResolve, o
 }
 
 Vue.use(Router);
-const routerCreate = () => {
-  return new Router({
-    mode: 'history', // require service support
-    // scrollBehavior: () => ({ y: 0 }),
-    routes: constantCommonRouterMap.concat(constantRouterMap)
-  })
+
+class LazyRouter extends Router {
+  constructor(option) {
+    const { routes } = option
+    Array.isArray(routes) && LazyRouter._itorCacheRouterName(routes)
+    super(option)
+    LazyRouter._setProxyRouter(this)
+  }
+  
+  // 递归插入lazy函数
+  static _itorCacheRouterName(routerTreeArr) {
+    const itor = (routerTreeArr, _path = '') => {
+      routerTreeArr.forEach(ele => {
+        const anotherCom = ele.component
+        const __path = path.resolve(_path, ele.path)
+        ele.component = () => Lazy(anotherCom, ele, __path)
+        ele.children && ele.children.length && itor(ele.children, __path)
+      });
+    }
+    itor(routerTreeArr)
+  }
+
+  static _setProxyRouter(router = {}) {
+    const deepRouterProto = router.__proto__
+    const routerProxyPrototype = Object.create(deepRouterProto)
+    router.__proto__ = routerProxyPrototype
+
+    ;['addRoute', 'addRoutes'].forEach(method => {
+      const originMethod = deepRouterProto[method]
+      LazyRouter._def(routerProxyPrototype, method, function() {
+        const args = arguments
+        switch(method) {
+          case 'addRoute':
+            Array.isArray(args[1]) && LazyRouter._itorCacheRouterName(args[1])
+            break;
+          case 'addRoutes':
+            Array.isArray(args[0]) && LazyRouter._itorCacheRouterName(args[0])
+            break;
+        }
+        return originMethod.apply(this, args)
+      })
+    })
+  }
+
+  static _def(obj, name, value) {
+    Object.defineProperty(obj, name, {
+      value: value,
+      writable: false, // 修改
+      enumerable: false,  // 枚举
+      configurable: false, //删除
+      // get: () => {},
+      // set: () => {}
+    })
+  }
 }
-const router = routerCreate()
+
+
+
+const router = new LazyRouter({
+  mode: 'history', // require service support
+  // scrollBehavior: () => ({ y: 0 }),
+  routes: constantCommonRouterMap.concat(constantRouterMap)
+})
+
 export default router

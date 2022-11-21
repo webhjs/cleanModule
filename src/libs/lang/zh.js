@@ -11,14 +11,14 @@ export default {
     name: '喻'
   },
   login: {
-    title: '无锡市医疗设备共享平台',
+    title: '微服务总线(MSB)',
     account: '账号',
     password: '密码',
     remember: '记住密码',
     login: '登录'
   },
   navbar: {
-    title: '无锡市医疗设备共享平台',
+    title: '微服务总线(MSB)',
     screenfull: '全屏',
     profile: '个人中心',
     avatar: '修改头像',

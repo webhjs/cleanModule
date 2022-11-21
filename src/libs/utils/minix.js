@@ -1,5 +1,4 @@
 import { mapActions } from "vuex";
-// 删除当前页并清空缓存
 export default {
 	inject: {
 		appMainTheme: {
@@ -11,41 +10,18 @@ export default {
 		...mapActions([
 			"delVisitedTabsView"
 		]),
-		goBackDataPage(routeConfig) {
+		goBackDataPage(routeName) {
 			/* 删除当前页 */
-			const { name, path, fullPath, params, query, meta } = this.$route
+			const { name, path, fullpath, params, query, meta } = this.$route
 			const tag = {
-				name, path, fullPath, params, query,
+				name, path, fullpath, params, query,
 				label: meta.title
 			}
-			this.appMainTheme.removeCache(tag.fullPath)
+			this.appMainTheme.removeCache(tag.path)
 			this.delVisitedTabsView(tag).then(() => {
-				const { path, query, name } = routeConfig;
-				function getParams(params) {
-					let paramStr = '';
-					Object.keys(params)
-						.forEach((item) => {
-							if (paramStr === '') {
-								paramStr = `${item}=${params[item]}`;
-							} else {
-								paramStr = `${paramStr}&${item}=${params[item]}`;
-							}
-						});
-					return paramStr;
-				}
-				let fullPath;
-				if (name) {
-					const { route } = this.$router.resolve({ name })
-					const find = route.matched.find(f => f.name === name)
-					fullPath = find.path
-					query && (fullPath += '?' + getParams(query))
-				}
-				if(path) {
-					fullPath = path
-					query && (fullPath += '?' + getParams(query))
-				}
-				fullPath && this.appMainTheme.removeCache(fullPath)
-				this.$router.push(routeConfig)
+				this.$router.push({
+					name: routeName
+				})
 			});
 			/* 删除当前页 */
 		}

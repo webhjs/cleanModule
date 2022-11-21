@@ -140,8 +140,17 @@
 .content-around {
   align-content: space-around;
 }
+.content-stretch {
+  align-content: stretch;
+}
 .justify-between {
   justify-content: space-between;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
 }
 .justify-around {
   justify-content: space-around;

@@ -106,7 +106,8 @@ const layout = {
         return state.routers
       }
     },
-    bgColorMap: state => state.bgColorMap
+    bgColorMap: state => state.bgColorMap,
+    originRouters: state => state.originRouters
   }
 }
 

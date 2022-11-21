@@ -13,4 +13,5 @@ export default {
   logout: ["/login/logout", "post"],
   getUserMenuList: ["/login/getUserMenuList", "get"],
   // updatePwd: ["/auth/updatePwd", "post", "params"]
+  test: ["/auth/updatePwd", "post", "params"]
 };

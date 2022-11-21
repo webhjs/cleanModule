@@ -17,6 +17,8 @@ export function Api(apiPath, data, headers) {
     post: "data",
     get: "params"
   };
+  if (!Object.keys(apiMap).includes(proto)) throw new Error('接口文件不存在 "' + proto + `.js"`);
+  if (!apiMapReal[name]) throw new Error('接口未定义 "' + proto + '/' + name + '"');
   const param = apiMapReal[name][2] || map[apiMapReal[name][1]]
   const querys = {
     url: apiMapReal[name][0],
@@ -31,7 +33,7 @@ export function Api(apiPath, data, headers) {
       if (resp.code == 200){
         resolve(resp);
       } else {
-        Message.error(resp.message);
+        Message.error(resp.message || resp.msg);
         reject(resp)
       }
     }).catch(err => {
@@ -70,6 +72,7 @@ export default {
         get: "params",
         delete: "params",
       };
+      if (!apiMapReal[name]) throw new Error('接口未定义 "' + proto + '/' + name + '"');
       const param = apiMapReal[name][2] || map[apiMapReal[name][1]]
 
       let query = {}
@@ -119,7 +122,7 @@ export default {
           } else if (resp.filename) { 
             resolve(resp);
           } else {
-            Message.error(resp.message);
+            Message.error(resp.message || resp.msg);
             reject(resp)
           }
         }).catch(err => {

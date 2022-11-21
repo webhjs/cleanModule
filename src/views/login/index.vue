@@ -1,15 +1,15 @@
 <template>
   <el-container class="login-container">
-    <el-button class="show-username p-3" type="text" @click="usernameTip"
+    <el-button class="show-account p-3" type="text" @click="usernameTip"
       >提示帐号信息</el-button
     >
     <el-card class="animated flipInY">
       <div slot="header" class="el-card-header">
-        <!-- <lang-select class="lang-select"></lang-select> -->
+        <lang-select class="lang-select"></lang-select>
 
         <!-- <i class="el-icon-postcard" style="font-size: 5rem; font-weight:normal; color: #409EFF" /> -->
         <p class="block text-center py-4">
-          <img class="m-auto" style="width: 3rem" src="../../libs/assets/imgs/login.png" />
+          <img class="m-auto" style="width: 3rem" src="../../libs/assets/imgs/logo.png" />
         </p>
 
         <h2 class="login-title">{{ $t("login.title") }}</h2>
@@ -139,22 +139,30 @@ export default {
             password: this.loginForm.password
           })
             .then(resp => {
-              // 保存账号
-              if (this.remember) {
-                saveToLocal("username", this.loginForm.username);
-                saveToLocal("password", this.loginForm.password);
-                saveToLocal("remember", true);
+              if (resp.code == 200) {
+                // 保存账号
+                if (this.remember) {
+                  saveToLocal("username", this.loginForm.username);
+                  saveToLocal("password", this.loginForm.password);
+                  saveToLocal("remember", true);
+                } else {
+                  saveToLocal("username", "");
+                  saveToLocal("password", "");
+                  saveToLocal("remember", false);
+                }
+                const path = this.$route.query.redirect || 'simple/home'
+                window.location = path
+                // this.$router.push({ path });
+                this.loading = false;
               } else {
-                saveToLocal("username", "");
-                saveToLocal("password", "");
-                saveToLocal("remember", false);
+                this.$message.error(resp.msg);
+                this.loading = false;
               }
-              const path = this.$route.query.redirect || '/home'
-              window.location = path
-              this.loading = false;
-            }).catch(err => {
-              this.loading = false;
             })
+            .catch(err => {
+              this.loading = false;
+              this.$message.error(err);
+            });
         } else {
           this.loading = false;
           console.log("error submit!!");
@@ -166,7 +174,7 @@ export default {
       this.$notify({
         title: "账号：admin",
         dangerouslyUseHTMLString: true,
-        message: "<strong>密码：<i>111111</i></strong>",
+        message: "<strong>密码：<i>123456</i></strong>",
         type: "success",
         // offset: 80,
         position: "bottom-left"
@@ -300,7 +308,7 @@ export default {
   background mix(#044289, #494166) url('../../../static/images/login-background.jpg') center no-repeat
   background-size cover
   overflow hidden
-  .show-username
+  .show-account
     position absolute
     left 15px
     bottom 20px
@@ -319,8 +327,6 @@ export default {
       text-align center
       .lang-select
         float right
-      >>> .icon
-        fill: #89befa
     .login-title
       font-size 1.5rem
       text-align center
