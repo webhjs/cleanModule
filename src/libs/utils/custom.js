@@ -151,4 +151,11 @@ function requireContext(modulesFiles, name) {
   return apiMap
 }
 
-export { guid, requireContext, dateFormat, isJSON, converter, numberENFun, clickTitle, idCardParse, Lazy }
+export default function to(promise) {
+  return promise.then(data => {
+     return [null, data]; //数组大小为2，第一项用null占位置，也达到了 !err == true 的效果
+  })
+  .catch(err => [err]); // 数组大小为1，根本没有第二项
+}
+
+export { guid, requireContext, dateFormat, isJSON, converter, numberENFun, clickTitle, idCardParse, Lazy, to }
