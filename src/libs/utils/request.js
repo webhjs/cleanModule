@@ -22,7 +22,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   (config) => {
-    config.headers['AUTHTOKEN'] = getToken();
+    config.headers['token'] = getToken();
     // config.headers['nonce'] = 'ied8szjomxibx0hs1ah4g3xhj1wnpn39jvmlkn7ep81zutt9nv5bwkklw5crm6gcer6sy6jlb6cnlsikhh66ypfamh0zar79t3b2tfsurziris19dohjfvydoiqmif3u'
     // config.headers['appKey'] = 1252
     // config.headers['curTime'] = 1610357629

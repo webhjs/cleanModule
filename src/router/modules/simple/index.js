@@ -47,7 +47,7 @@ export const constantRouterMap = [
       {
         path: "drag-tree-table",
         name: "drag-tree-table",
-        meta: { icon: "document-copy", keepAlive: false, title: "树行table排序" }, // keepAlive: false, activeMenu: '/resource-manage/dataconversion'
+        meta: { icon: "document-copy", keepAlive: false, title: "树行table排序" }, // infoName: 'name', keepAlive: false, activeMenu: '/resource-manage/dataconversion'
         component: () => import("@/views/simple-template/table/drag-tree-table") 
       },
       {
@@ -129,6 +129,13 @@ export const asyncRouterMap = [
         name: "component-index",
         meta: { icon: "brush", title: "组件列表" },
         component: () => import("@/views/simple-template/components/list")
+      },
+      {
+        path: "component-indexinfo*",
+        hidden: true,
+        name: 'component-indexinfo',
+        meta: { icon: "brush", title: "详情列表", infoName: 'name', activeMenu: '/components/component-index' },
+        component: () => import("@/views/simple-template/components/listinfo")
       }
     ]
   },

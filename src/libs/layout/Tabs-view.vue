@@ -8,7 +8,7 @@
         <draggable class="draggable-wrap" :options="{ animation: 300 }">
           <div
             v-for="tag in visitedTabsView"
-            :key="tag.path"
+            :key="tag.fullPath"
             class="draggable"
           >
             <router-link
@@ -181,16 +181,19 @@ export default {
       if (!route) {
         return false;
       }
-      this.addVisitedTabsView(this.generateRoute());
+      this.addVisitedTabsView(route);
     },
     generateRoute() {
-      if (this.$route.name) {
+      if (this.$route.meta.infoName) {
+        this.$route.meta.title = this.$route.query[this.$route.meta.infoName]
+        return this.$route;
+      } else if(this.$route.name) {
         return this.$route;
       }
       return false;
     },
     isActive(route) {
-      return route.path === this.$route.path || route.name === this.$route.name;
+      return route.fullPath === this.$route.fullPath;
     },
     handleClose(tag) {
       if (this.visitedTabsView.length === 1 && tag.path === "/home") {

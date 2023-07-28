@@ -19,7 +19,7 @@ const tabsview = {
       state.visitedTabsView = view
     },
     [SET_TABSVIEW](state, view) {
-      if (state.visitedTabsView.find((n) => n.path === view.path)) {
+      if (state.visitedTabsView.find((n) => n.fullPath === view.fullPath)) {
         return
       }
       const { name, path, fullPath, params, query, meta } = view

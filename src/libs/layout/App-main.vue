@@ -11,7 +11,7 @@
     <!--页面不需要缓存-->
     <transition  name="fade" enter-active-class="animated fadeIn" mode="out-in" appear @after-enter="afterRouterChange">
       <keep-alive :exclude="keepAliveArr">
-        <router-view v-if="isReload" :key="$route.fullPath" class="main-warp" ref="routerView"> </router-view>
+        <router-view v-if="isReload" :key="$route.fullPath" class="main-warp overflow-auto" ref="routerView"> </router-view>
       </keep-alive>
     </transition>
   </div>

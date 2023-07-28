@@ -10,7 +10,7 @@
 <template>
   <div
     :ref="id+'_screenwrap'"
-    style="display: flex;height: 89%; width: 100%;flex-flow: column; position: relative"
+    style="display: flex;height: 100%; width: 100%;flex-flow: column; position: relative"
     :class="fullscreenValue && 'fullscreen'"
   >
     <div
@@ -83,7 +83,7 @@ export default {
     },
     defLangValue: {
       type: String,
-      default: 'json'
+      default: 'js'
     },
     content: {
       type: [Object, String, Array],
@@ -201,7 +201,9 @@ export default {
         formatOnPaste: true,
         fontSize: 14,
         automaticLayout: true, // 自动布局
+        overviewRulerBorder: false, //滚动是否有边框
         autoIndent: true, // 自动布局
+        lineNumbers: 'off', // 控制行号的显隐
 
         // wordWrap: 'wordWrapColumn',
         // wordWrapColumn: 85,
@@ -217,7 +219,8 @@ export default {
           enabled: false // 是否启用预览图
         },
         scrollbar: {
-          verticalScrollbarSize: 5 // scroll大小
+          verticalScrollbarSize: 5, // scroll大小
+          horizontalScrollbarSize: 4, // 水平滚动高度
         }
       })
 

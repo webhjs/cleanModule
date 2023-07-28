@@ -24,9 +24,9 @@ const user = {
     login({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
         Api("login/login", userInfo)
-          .then(resp => {
-            setToken(resp.data.AUTHTOKEN);
-            commit(SET_TOKEN, resp.data.AUTHTOKEN);
+          .then(([_, resp]) => {
+            setToken(resp.data.token);
+            commit(SET_TOKEN, resp.data.token);
             resolve(resp);
           })
           .catch(err => {
@@ -38,7 +38,7 @@ const user = {
     pullUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
         Api("login/userInfo")
-          .then(resp => {
+          .then(([_, resp]) => {
             if (resp.code == 200) {
               commit(SET_ACCOUNT_INFO, resp.data);
               resolve(resp.data);
@@ -55,7 +55,7 @@ const user = {
     getUserMenuList() {
       return new Promise((resolve, reject) => {
         Api("login/getUserMenuList")
-          .then(resp => {
+          .then(([_, resp]) => {
             if (resp.code == 200) {
               const itor = (data) => {
                 data.forEach(ele => {
