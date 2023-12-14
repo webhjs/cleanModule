@@ -85,7 +85,7 @@ export default {
     HistogramChart
   },
   mounted() {
-    this.api("login/test")
+    this.api("login/test", { get: {a: 123}, post: {b: 456} })
       .then(resp => {
         console.log('刷新登录数据', resp)
       })

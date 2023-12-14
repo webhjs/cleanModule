@@ -3,8 +3,8 @@
  * @Descripttion: 下拉表格
  * @Author: Morning
  * @Date: 2021-03-27 16:38:21
- * @LastEditors: 金苏
- * @LastEditTime: 2021-05-11 14:37:40
+ * @LastEditors: 黄金苏9064
+ * @LastEditTime: 2023-12-14 15:19:17
 -->
 
 <template>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import export_excel from "hjs-xlsx";
+import { exportXlsx } from "hjs-xlsx";
 export default {
   name: "DropDownTable",
 
@@ -100,17 +100,14 @@ export default {
       const list = this.tableData;
       const data = this.formatJson(filterVal, list);
       data.map(item => {
-        console.log(item)
         item.map((i, index) => {
           if (!i) {
             item[index] = "";
           }
         });
       });
-      // console.log(data)
-      // return
       const merges = ["A1:I1", "A2:B2"]; //合并单元格
-      export_excel({
+      exportXlsx({
         title: title,
         header: tHeader,
         data,
@@ -159,6 +156,13 @@ export default {
                 // wrapText: "false" 文字是否换行
               }
             }
+          },
+          {
+            range: ["B2:B5"],
+            style: {
+              numFmt: "0.00"
+            },
+            type: 'Number'
           }
         ]
       });
