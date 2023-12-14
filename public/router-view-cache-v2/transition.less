@@ -1,0 +1,143 @@
+@easeIn: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+@easeOut: cubic-bezier(0.07, 0.59, 0.26, 0.97);
+
+/****************************路由前进，进入**************************************/
+.move-right-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.move-right-enter-active {
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: -5px 0 6px rgba(0, 0, 0, 0.1);
+}
+.move-right-enter-to {
+}
+.move-right-leave {
+}
+
+.move-right-leave-active {
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: -5px 0 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+}
+
+.move-right-leave-to {
+  transform: translate3d(-15%, 0, 0);
+}
+
+.move-left-enter-active,
+.move-left-leave-active,
+.move-right-enter-active,
+.move-right-leave-active {
+  will-change: transform, opcity;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  content-visibility: auto;
+  contain-intrinsic-size: 100vh;
+}
+
+/****************************路由退出，后退**************************************/
+.move-left-enter {
+  opacity: 0;
+  position: absolute;
+  transform: translate3d(-15%, 0, 0);
+}
+.move-left-enter-active {
+  transition: transform 0.26s ease, opacity 0.26s ease, visibility 0.26s ease;
+  box-shadow: -5px 0 6px rgba(0, 0, 0, 0.1);
+}
+.move-left-enter-to {
+}
+
+.move-left-leave {
+  opacity: 1;
+  transform: translate3d(0%, 0, 0);
+}
+.move-left-leave-active {
+  transition: transform 0.26s ease, opacity 0.26s ease, visibility 0.26s ease;
+  box-shadow: -5px 0 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+}
+.move-left-leave-to {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+/****************************fade：渐变**************************************/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+/****************************路由滑动**************************************/
+.slide-transform-leave-active,
+.slide-transform-enter-active {
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.slide-transform-enter {
+  opacity: 0;
+  position: relative;
+  transform: translateX(-30px);
+}
+.slide-transform-leave-to {
+  opacity: 0;
+  position: relative;
+  transform: translateX(30px);
+}
+
+/****************************路由前进，进入**************************************/
+.pop-in-enter {
+  opacity: 0;
+  transform: translate3d(90%, 0, 0);
+}
+.pop-in-leave-active {
+  opacity: 0;
+  transform: translate3d(-90%, 0, 0);
+}
+.pop-in-enter-active,
+.pop-in-leave-active {
+  transition: transform 0.24s ease, opacity 0.24s ease, visibility 0.24s ease;
+  box-shadow: -0.1rem 0 0.12rem rgba(0, 0, 0, 0.1);
+}
+
+.pop-out-enter-active,
+.pop-out-leave-active,
+.pop-in-enter-active,
+.pop-in-leave-active {
+  will-change: transform, opcity;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  content-visibility: auto;
+}
+
+/****************************路由退出，后退**************************************/
+.pop-out-enter {
+  will-change: transform, opcity;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.pop-out-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.pop-out-enter-active,
+.pop-out-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+  box-shadow: 0.1rem 0 0.12rem rgba(0, 0, 0, 0.1);
+}
