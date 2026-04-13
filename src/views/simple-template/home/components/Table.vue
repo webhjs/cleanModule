@@ -67,15 +67,15 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .extra {
-  font-size: 20px
-  margin: 20px 0
+  font-size: 20px;
+  margin: 20px 0;
 }
 .title {
-  text-align: center
-  font-weight: blod
-  font-size: 30px
-  margin-bottom: 15px
+  text-align: center;
+  font-weight: blod;
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 </style>

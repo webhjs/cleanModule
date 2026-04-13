@@ -91,25 +91,32 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.document
-  width 100%
-  .listWrap
-    img
-      height 2rem
+<style lang="scss" scoped>
+.document {
+  width: 100%;
+  .listWrap {
+    img {
+      height: 2rem;
+    }
 
-    .el-card.active
-      border 1px solid #c60
+    .el-card.active {
+      border: 1px solid #c60;
+    }
 
-    >>> .el-card__body
-      padding 1rem
-      
-    >>> .el-link--inner
-      display flex 
-      flex-direction row 
-      flex-wrap nowrap
+    ::v-deep .el-card__body {
+      padding: 1rem;
+    }
 
-  iframe
-    width 100%
-    height calc(100vh - 15rem)
+    ::v-deep .el-link--inner {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: calc(100vh - 15rem);
+  }
+}
 </style>

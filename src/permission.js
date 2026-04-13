@@ -3,8 +3,8 @@
  * @version:
  * @Author: 金苏
  * @Date: 2021-03-22 09:20:49
- * @LastEditors: 金苏
- * @LastEditTime: 2021-08-26 09:51:46
+ * @LastEditors: crane
+ * @LastEditTime: 2026-04-13 19:32:27
  */
 /*
  * 全局权限检测
@@ -27,7 +27,7 @@ const { constantRouterMap, asyncRouterMap } = routerModules ? routerModules : { 
 
 NProgress.configure({ showSpinner: false });
 
-const whitePath = ['/login', '/components/component-index']; // 白名单
+const whitePath = ['/login', '/404', '/403']; // 白名单
 // 路由全局前置守卫
 router.beforeEach(async (to, from, next) => {
   NProgress.start(); // start progress bar

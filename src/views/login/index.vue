@@ -296,60 +296,72 @@ export default {
   }
 };
 </script>
-<style scoped lang="stylus">
-.login-container
-  position absolute
-  width 100%
-  height 100%
-  top 0
-  left 0
-  right 0
-  bottom 0
-  background mix(#044289, #494166) url('../../../static/images/login-background.jpg') center no-repeat
-  background-size cover
-  overflow hidden
-  .show-account
-    position absolute
-    left 15px
-    bottom 20px
-    color var(--grey)
-    background var(--white)
-    font-weight 500
-  .el-card
-    position absolute
-    top 50%
-    left 50%
-    margin -300px 0 0 -250px
-    width 500px
-    height 450px
-    background #fff
-    .el-card-header
-      text-align center
-      .lang-select
-        float right
-    .login-title
-      font-size 1.5rem
-      text-align center
-    .el-input /deep/ .el-input__inner
-      text-indent 12px
-    .svg-container
-      position absolute
-      top 0
-      left 5px
-      color var(--gray)
-      &_user
-        font-size 20px
-      &_password
-        left 7px
-        font-size 16px
-    .el-button--primary
-      width 100%
+<style scoped lang="scss">
+.login-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: mix(#044289, #494166) url('../../../static/images/login-background.jpg') center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  .show-account {
+    position: absolute;
+    left: 15px;
+    bottom: 20px;
+    color: var(--grey);
+    background: var(--white);
+    font-weight: 500;
+  }
+  .el-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -300px 0 0 -250px;
+    width: 500px;
+    height: 450px;
+    background: #fff;
+    .el-card-header {
+      text-align: center;
+      .lang-select {
+        float: right;
+      }
+    }
+    .login-title {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .el-input ::v-deep .el-input__inner {
+      text-indent: 12px;
+    }
+    .svg-container {
+      position: absolute;
+      top: 0;
+      left: 5px;
+      color: var(--gray);
+      &_user {
+        font-size: 20px;
+      }
+      &_password {
+        left: 7px;
+        font-size: 16px;
+      }
+    }
+    .el-button--primary {
+      width: 100%;
+    }
+  }
+}
 
-#particles
-  width 100%
-  height 100%
-  background-color transparent
-  background-size cover
-  background-position 50% 50%
-  background-repeat no-repeat
+#particles {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
 </style>

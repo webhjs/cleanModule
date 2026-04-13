@@ -82,11 +82,12 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.width-95
+<style lang="scss" scoped>
+.width-95 {
   width: 100%;
   margin-right: 6px;
-/deep/ .el-form--label-top .el-form-item__label {
-  padding: 0px
+}
+::v-deep .el-form--label-top .el-form-item__label {
+  padding: 0px;
 }
 </style>

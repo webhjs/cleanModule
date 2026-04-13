@@ -46,8 +46,8 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .active {
-  color: white
+  color: white;
 }
 </style>

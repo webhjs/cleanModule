@@ -17,6 +17,9 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.cursor-move {
+  cursor: move;
+}
 .h-0 {
   height: 0px;
 }

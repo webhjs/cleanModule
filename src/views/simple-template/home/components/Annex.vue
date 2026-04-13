@@ -21,12 +21,14 @@
 <script>
 export default {}
 </script>
-<style lang="stylus" scoped>
-.content
-    font-size 16px
-    line-height 35px
-    letter-spacing 3px
-.title
-  text-align right
-  padding-right 5px
+<style lang="scss" scoped>
+.content {
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 3px;
+}
+.title {
+  text-align: right;
+  padding-right: 5px;
+}
 </style>

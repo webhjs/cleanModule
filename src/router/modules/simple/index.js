@@ -3,8 +3,8 @@
  * @version:
  * @Author: 金苏
  * @Date: 2021-03-29 17:31:42
- * @LastEditors: 金苏
- * @LastEditTime: 2021-10-09 11:32:08
+ * @LastEditors: 黄金苏9064
+ * @LastEditTime: 2024-01-22 16:32:29
  */
 import Layout from "@/libs/layout/Layout";
 
@@ -14,7 +14,7 @@ export const constantRouterMap = [
     // hidden: true,
     component: Layout,
     meta: { icon: "s-home", title: "首页" },
-    redirect: "/home",
+    redirect: "/dragLayout/index",
     children: [
       {
         path: "home",
@@ -183,6 +183,21 @@ export const asyncRouterMap = [
         name: "sub1",
         meta: { icon: "star-on", title: "官方文档", roles: ["Lucy"] },
         component: () => import("@/views/simple-template/document")
+      }
+    ]
+  },
+  {
+    path: "/dragLayout",
+    component: Layout,
+    alwaysShow: true,
+    redirect: "/dragLayout/index",
+    meta: { icon: "s-home", title: "拖拽布局" },
+    children: [
+      {
+        path: "index",
+        name: "sub1",
+        meta: { icon: "star-on", title: "拖拽布局", roles: ["Lucy"] },
+        component: () => import("@/views/simple-template/dragLayout")
       }
     ]
   }

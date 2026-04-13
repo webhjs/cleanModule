@@ -138,14 +138,16 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.el-menu
-  height 100%
+<style lang="scss" scoped>
+.el-menu {
+  height: 100%;
   border-right: 0;
-  background-color var(--light)
-.overflowScroll
-  height: calc(100% - 55px)
+  background-color: var(--light);
+}
+.overflowScroll {
+  height: calc(100% - 55px);
   overflow: auto;
+}
 </style>
 <style>
 .el-menu-vertical-demo:not(.el-menu--collapse) {

@@ -179,68 +179,68 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.top-navbar /deep/ .el-menu-item {
+<style lang="scss" scoped>
+.top-navbar ::v-deep .el-menu-item {
   &:hover {
-    background-color: transparent
+    background-color: transparent;
   }
   &:focus {
-    background-color: transparent
+    background-color: transparent;
   }
 }
 .el-menu {
-  display flex
-  height 55px
-  font-size 30px
-  position relative
+  display: flex;
+  height: 55px;
+  font-size: 30px;
+  position: relative;
 }
 .menu-list {
-  display flex
-  flex 1
-  align-items center
+  display: flex;
+  flex: 1;
+  align-items: center;
 }
 .menu-wrap {
-  display flex
-  flex 1
+  display: flex;
+  flex: 1;
 }
 .menu-right {
-  display flex
-  justify-content space-between
-  align-items center
-  margin-right: 23px
-  width 320px
-  font-size 22px
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 23px;
+  width: 320px;
+  font-size: 22px;
 }
 .userinfo-wrap {
-  display flex;
+  display: flex;
 }
 .menu-dropdown {
-  width: 100%
+  width: 100%;
 }
 .dropdown-wrap {
-  display flex
-  width 200px
+  display: flex;
+  width: 200px;
 }
 .drop-img {
-  display inline
-  border-radius 100%
+  display: inline;
+  border-radius: 100%;
 }
 .drop-account {
-  display flex
-  flex: 1
-  justify-content center
-  align-items center
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 .account-wrap {
-  width 100%
-  height 100%
-  position relative
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .username {
-  position absolute
-  width: 100%
-  font-size 18px
-  text-align center
-  line-height 30px
+  position: absolute;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  line-height: 30px;
 }
 </style>

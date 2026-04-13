@@ -101,17 +101,19 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.whitebg  
-  overflow auto
-  background-color #f2f4f7
-  padding: 8px 10px 0
-.main-warp
-  position absolute
-  width 100%
-  height 100%
-  background #f3f3f3
-  padding: 10px
+<style lang="scss" scoped>
+.whitebg {
+  overflow: auto;
+  background-color: #f2f4f7;
+  padding: 8px 10px 0;
+}
+.main-warp {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f3f3f3;
+  padding: 10px;
+}
 </style>
 <style>
 .margin12{

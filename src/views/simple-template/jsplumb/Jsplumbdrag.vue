@@ -316,41 +316,49 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.dragger-wrap
-  height: 500px
-  display: flex
-  .left
+<style lang="scss" scoped>
+.dragger-wrap {
+  height: 500px;
+  display: flex;
+  .left {
     flex: 0 0 250px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     align-content: flex-start;
-    .list-item
-      margin: 0 3px 5px 0
-  .right
-    margin-left 8px
-    user-select none
-    flex: 1
-    border 1px solid #ccc
-    position relative
-    overflow auto
-    .list-item
-      position absolute
-.list-item
-  height 80px
-  width 80px
-  display flex
-  justify-content center
-  align-items center
-  cursor pointer
-  border 1px solid #ccc
-  z-index: 7
-  background: white
-  box-shadow: 2px 2px 19px #e0dfdf
-  border-radius: 5px
-/deep/ .jtk-endpoint
-  z-index 5
-/deep/ .aLabel
-  color red
+    .list-item {
+      margin: 0 3px 5px 0;
+    }
+  }
+  .right {
+    margin-left: 8px;
+    user-select: none;
+    flex: 1;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: auto;
+    .list-item {
+      position: absolute;
+    }
+  }
+}
+.list-item {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  z-index: 7;
+  background: white;
+  box-shadow: 2px 2px 19px #e0dfdf;
+  border-radius: 5px;
+}
+::v-deep .jtk-endpoint {
+  z-index: 5;
+}
+::v-deep .aLabel {
+  color: red;
+}
 </style>

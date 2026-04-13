@@ -44,10 +44,11 @@
   }
 </script>
 
-<style scoped lang="stylus">
-.sidebar-icon
-  font-size 1.1em
-  margin-right 8px
-  margin-left 4px
-  display inline-block
+<style scoped lang="scss">
+.sidebar-icon {
+  font-size: 1.1em;
+  margin-right: 8px;
+  margin-left: 4px;
+  display: inline-block;
+}
 </style>

@@ -224,91 +224,115 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.menu-dropdown
-  background white
+<style lang="scss" scoped>
+.menu-dropdown {
+  background: white;
   padding: 5px 0;
-  width 100px
-  color: #000
-  border-radius 4px
-  cursor pointer
-  font-size: 14px
-.menu-li
-  padding: 5px 10px
-  border-bottom 1px solid #eee
-/deep/ .offset-wrap
+  width: 100px;
+  color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.menu-li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #eee;
+}
+::v-deep .offset-wrap {
   height: 100%;
-.tabs-view-container
+}
+.tabs-view-container {
   height: 40px;
-  position relative
-  width 100%
+  position: relative;
+  width: 100%;
   // relative w-full
-  &:after
-    position absolute
-    bottom 0
-    left 0
-    content ''
-    height 1px
-    width 100%
-    background linear-gradient(90deg,#f100db,#00eced,#0c76e5,green,#ff0,orange,red)
-  .tags-view-item
-    .el-tag
-      margin 0 8px
-      &:first-child
-        margin-left 0
-  .container
-    position absolute
-    height: 100%
-    width: 100%
-    .draggable-wrap
-      height: 100%
-    .draggable
-      display inline-block
-      height: 100%
-      margin 0 5px
-ul.curstom
-  li:hover
-    background #eee
-.tags-view-item
-  display block
-  height 100%
-  padding 4px 0
-  &.active
-    color #409eff
-    .tag-pane
-      .close
-        width 14px
-      &::before
-        background-color #409eff
-  .tag-pane
-    height 100%
-    padding 0 10px
-    display flex
-    align-items center
-    justify-content space-between
-    border 1px solid #e8eaec
-    border-radius 3px
-    background #ffffff
-    &:before
-      display inline-block
-      content ''
-      width 10px
-      height 10px
-      border-radius 100%
-      background-color #e8eaec
-      margin-right 5px
-    .close
-      transition width .4s ease
-      margin-left 5px
-      overflow hidden
-      width 0px
-    &:hover
-      color #409eff
-      &:before
-        background-color #80bcf9
-      .close
-        width 14px
-.closed-wrap
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, #f100db, #00eced, #0c76e5, green, #ff0, orange, red);
+  }
+  .tags-view-item {
+    .el-tag {
+      margin: 0 8px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  .container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    .draggable-wrap {
+      height: 100%;
+    }
+    .draggable {
+      display: inline-block;
+      height: 100%;
+      margin: 0 5px;
+    }
+  }
+}
+ul.curstom {
+  li:hover {
+    background: #eee;
+  }
+}
+.tags-view-item {
+  display: block;
+  height: 100%;
+  padding: 4px 0;
+  &.active {
+    color: #409eff;
+    .tag-pane {
+      .close {
+        width: 14px;
+      }
+      &::before {
+        background-color: #409eff;
+      }
+    }
+  }
+  .tag-pane {
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e8eaec;
+    border-radius: 3px;
+    background: #ffffff;
+    &:before {
+      display: inline-block;
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: #e8eaec;
+      margin-right: 5px;
+    }
+    .close {
+      transition: width .4s ease;
+      margin-left: 5px;
+      overflow: hidden;
+      width: 0px;
+    }
+    &:hover {
+      color: #409eff;
+      &:before {
+        background-color: #80bcf9;
+      }
+      .close {
+        width: 14px;
+      }
+    }
+  }
+}
+.closed-wrap {
   width: 26px;
   height: 100%;
   font-size: 24px;
@@ -322,9 +346,11 @@ ul.curstom
   width: 35px;
   border-left: 1px solid #eee;
   font-size: 20px;
+}
 </style>
-<style lang="stylus">
-.opear-pover
-  min-width auto
-  padding 5px 0
+<style lang="scss">
+.opear-pover {
+  min-width: auto;
+  padding: 5px 0;
+}
 </style>

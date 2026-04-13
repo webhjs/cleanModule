@@ -464,56 +464,68 @@ export default {
   },
 };
 </script>
-<style lang="stylus" scoped>
-.dragger-wrap
-  height: 500px
-  display: flex
-  border 1px solid #ccc
-  overflow: hidden
-  .right
-    margin-left 8px
-    user-select none
-    flex: 1
-    position relative
-    overflow auto
-    /deep/ .list-item
-      position absolute
-/deep/ .list-item
-  height 50px
-  width 50px
-  display flex
-  justify-content center
-  align-items center
-  border 1px solid #ccc
-  z-index: 7
-  color: white
-  box-shadow: 2px 2px 19px #e0dfdf
-  border-radius: 100%
-  position: relative
+<style lang="scss" scoped>
+.dragger-wrap {
+  height: 500px;
+  display: flex;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  .right {
+    margin-left: 8px;
+    user-select: none;
+    flex: 1;
+    position: relative;
+    overflow: auto;
+    ::v-deep .list-item {
+      position: absolute;
+    }
+  }
+}
+::v-deep .list-item {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  z-index: 7;
+  color: white;
+  box-shadow: 2px 2px 19px #e0dfdf;
+  border-radius: 100%;
+  position: relative;
   padding: 3px;
   border: 3px solid currentColor;
   background-color: currentColor;
   background-clip: content-box;
-  .text
-    white-space:nowrap;
+  .text {
+    white-space: nowrap;
     position: absolute;
     bottom: -25px;
     color: currentColor;
-  .toptip
-    white-space:nowrap;
+  }
+  .toptip {
+    white-space: nowrap;
     position: absolute;
     top: -25px;
     color: currentColor;
-  &.success,&.warning,&.running,&.error
-    color: white
-  &.success
-    color: #67c23a
-  &.warning
-    color: #e6a23c
-  &.running
-    color: #909399
-  &.error
-    color: #f56c6c
-  &:hover
-    z-index 10
+  }
+  &.success, &.warning, &.running, &.error {
+    color: white;
+  }
+  &.success {
+    color: #67c23a;
+  }
+  &.warning {
+    color: #e6a23c;
+  }
+  &.running {
+    color: #909399;
+  }
+  &.error {
+    color: #f56c6c;
+  }
+  &:hover {
+    z-index: 10;
+  }
+}
 </style>

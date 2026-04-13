@@ -267,26 +267,26 @@ export default {
 };
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="scss">
 .input-with-select {
   width: 300px;
 
-  /deep/ .el-button--medium {
+  ::v-deep .el-button--medium {
     padding: 10px 11px;
     background: #1890ff;
     color: white;
   }
 
-  /deep/ .el-input-group__append, /deep/ .el-input-group__prepend {
+  ::v-deep .el-input-group__append, ::v-deep .el-input-group__prepend {
     padding: 0 16px;
   }
 
-  /deep/ .el-button--medium {
+  ::v-deep .el-button--medium {
     border-radius: 0 4px 4px 0;
   }
 }
 
-/deep/ .el-form-item__label {
+::v-deep .el-form-item__label {
   color: #888;
 }
 
@@ -294,7 +294,7 @@ export default {
   width: 250px;
 }
 
-/deep/ .vertical {
+::v-deep .vertical {
   vertical-align: middle;
 }
 </style>

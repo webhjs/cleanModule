@@ -18,16 +18,19 @@
 <script>
 export default {}
 </script>
-<style lang="stylus" scoped>
-.seal
-  height 150px
-  display flex
-  justify-content flex-end
-  align-items flex-end
-  .date
-    text-align center
-.content
-  font-size 16px
-  line-height 35px
-  letter-spacing 3px
+<style lang="scss" scoped>
+.seal {
+  height: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  .date {
+    text-align: center;
+  }
+}
+.content {
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 3px;
+}
 </style>

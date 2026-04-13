@@ -161,45 +161,55 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-#pdfDom
-  width 940px
-  padding: 20px 20px
-  .golbal
-    padding-top 50px
-    color red
-    font-size 40px
-    font-weight bold
-    text-align center
-    position relative
-    /deep/ .el-divider
-      background-color red
-      height 5px
-    .number
-      color: #000
-      font-size 20px
-      position absolute
-      right 0
-      bottom -20px
-      font-weight normal
-  .title
-    text-align center
-    font-weight 600
-    margin 80px 0 50px 0
-    line-height 35px
-    font-size 22px
-ul,li
-  list-style none
-  margin 0
-  padding 0
-  li
-    padding-left 1em
-.blod
-  font-weight bold
-.list-item
-  line-height 30px
-.export
-  position absolute
-  top 2.5vh
-  right 2vw
+<style lang="scss" scoped>
+#pdfDom {
+  width: 940px;
+  padding: 20px 20px;
+  .golbal {
+    padding-top: 50px;
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    ::v-deep .el-divider {
+      background-color: red;
+      height: 5px;
+    }
+    .number {
+      color: #000;
+      font-size: 20px;
+      position: absolute;
+      right: 0;
+      bottom: -20px;
+      font-weight: normal;
+    }
+  }
+  .title {
+    text-align: center;
+    font-weight: 600;
+    margin: 80px 0 50px 0;
+    line-height: 35px;
+    font-size: 22px;
+  }
+}
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    padding-left: 1em;
+  }
+}
+.blod {
+  font-weight: bold;
+}
+.list-item {
+  line-height: 30px;
+}
+.export {
+  position: absolute;
+  top: 2.5vh;
+  right: 2vw;
+}
 </style>

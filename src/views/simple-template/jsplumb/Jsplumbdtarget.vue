@@ -802,95 +802,118 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.dragger-wrapjs
-  height: 500px
-  display: flex
-  .left
-    flex: 0 0 250px
-    display flex
-    justify-content flex-start
-    flex-wrap: wrap
-    align-content: flex-start
-    .list-item
-      margin: 0 3px 5px 0
-  /deep/ .right
-    margin-left 8px
-    user-select none
-    flex: 1
-    border 1px solid #ccc
-    position relative
-    overflow auto
-    .list-item
-      position absolute
-      .anchor
-        cursor crosshair
-/deep/ .list-item
-  height 80px
-  width 80px
-  display flex
-  justify-content center
-  cursor move
-  align-items center
-  border 1px solid #ccc
-  z-index: 7
-  background: white
-  box-shadow: 2px 2px 19px #e0dfdf
-  border-radius: 5px
-  position: relative
-  .text
-    white-space:nowrap;
+<style lang="scss" scoped>
+.dragger-wrapjs {
+  height: 500px;
+  display: flex;
+  .left {
+    flex: 0 0 250px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    .list-item {
+      margin: 0 3px 5px 0;
+    }
+  }
+  ::v-deep .right {
+    margin-left: 8px;
+    user-select: none;
+    flex: 1;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: auto;
+    .list-item {
+      position: absolute;
+      .anchor {
+        cursor: crosshair;
+      }
+    }
+  }
+}
+::v-deep .list-item {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  cursor: move;
+  align-items: center;
+  border: 1px solid #ccc;
+  z-index: 7;
+  background: white;
+  box-shadow: 2px 2px 19px #e0dfdf;
+  border-radius: 5px;
+  position: relative;
+  .text {
+    white-space: nowrap;
     position: absolute;
     bottom: -25px;
     color: #000;
-  .icon-text
+  }
+  .icon-text {
     position: initial;
     display: inline-block;
     width: 80px;
     text-align: center;
-  &.success,&.warning,&.running,&.error
-    color: white
-    .icon-text
-      color: white
-  &.success
-    background: #67c23a
-  &.warning
-    background: #e6a23c
-  &.running
-    background: #909399
-  &.error
-    background: #f56c6c
-  &:hover
-    z-index 10
-/deep/ .vertical
+  }
+  &.success, &.warning, &.running, &.error {
+    color: white;
+    .icon-text {
+      color: white;
+    }
+  }
+  &.success {
+    background: #67c23a;
+  }
+  &.warning {
+    background: #e6a23c;
+  }
+  &.running {
+    background: #909399;
+  }
+  &.error {
+    background: #f56c6c;
+  }
+  &:hover {
+    z-index: 10;
+  }
+}
+::v-deep .vertical {
   height: 40px;
-/deep/ .icon-text
+}
+::v-deep .icon-text {
   height: 40px;
   width: 120px;
-  display: flex
-  .iconfont
-    flex: 0 0 40px
+  display: flex;
+  .iconfont {
+    flex: 0 0 40px;
     text-align: center;
-  .text
-    flex: 1
-    position: initial
-    display: flex
-    align-items: center
-  &.success,&.warning,&.running,&.error
-    .text
-      color: white
-      
-/deep/ .jtk-endpoint
-  z-index 5
-/deep/ .aLabel
-  color red
-/deep/ .edit-node-dialog .el-dialog__body {
+  }
+  .text {
+    flex: 1;
+    position: initial;
+    display: flex;
+    align-items: center;
+  }
+  &.success, &.warning, &.running, &.error {
+    .text {
+      color: white;
+    }
+  }
+}
+::v-deep .jtk-endpoint {
+  z-index: 5;
+}
+::v-deep .aLabel {
+  color: red;
+}
+::v-deep .edit-node-dialog .el-dialog__body {
   padding: 10px 40px 0;
 }
-/deep/ .jtk-overlay:hover {
-  z-index 10
+::v-deep .jtk-overlay:hover {
+  z-index: 10;
 }
-/deep/ .jtk-overlay.flowLabel:not(.aLabel) {
+::v-deep .jtk-overlay.flowLabel:not(.aLabel) {
   padding: 4px 10px;
   background-color: white;
   color: #565758 !important;

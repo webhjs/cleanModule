@@ -57,11 +57,11 @@
     }
   }
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .screenfull-svg {
-  cursor pointer
-  width 20px
-  height 20px
-  vertical-align 10px
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  vertical-align: 10px;
 }
 </style>

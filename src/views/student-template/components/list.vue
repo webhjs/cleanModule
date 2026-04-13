@@ -75,10 +75,11 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.margin
-  margin 0 auto
-.border
+<style lang="scss" scoped>
+.margin {
+  margin: 0 auto;
+}
+.border {
   width: 26px;
   height: 100%;
   font-size: 24px;
@@ -92,4 +93,5 @@ export default {
   width: 30px;
   border-left: 1px solid #eee;
   font-size: 20px;
+}
 </style>

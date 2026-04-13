@@ -49,12 +49,12 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .dropdown {
-  font-size 24px
+  font-size: 24px;
 }
 .icon {
-  display inline;
+  display: inline;
   font-size: 1.4rem;
 }
 </style>

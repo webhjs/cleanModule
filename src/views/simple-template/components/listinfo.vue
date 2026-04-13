@@ -28,7 +28,7 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .margin {
   margin: 0 auto;
 }

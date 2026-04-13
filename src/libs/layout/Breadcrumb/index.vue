@@ -75,16 +75,16 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .bread-wrap {
-  display flex
-  height 100%
-  align-items center
-  padding-left 10px
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding-left: 10px;
 }
-/deep/ .el-breadcrumb, .title {
-  font-size 16px;
-  line-height 1
+::v-deep .el-breadcrumb, .title {
+  font-size: 16px;
+  line-height: 1;
 }
 /* breadcrumb transition */
 .breadcrumb-enter-active,
@@ -105,7 +105,7 @@ export default {
 .breadcrumb-leave-active {
   position: absolute;
 }
-/deep/ .el-breadcrumb__item:last-child .el-breadcrumb__inner,/deep/ .el-breadcrumb__inner a,/deep/ .el-breadcrumb__inner {
-  color: unset
+::v-deep .el-breadcrumb__item:last-child .el-breadcrumb__inner, ::v-deep .el-breadcrumb__inner a, ::v-deep .el-breadcrumb__inner {
+  color: unset;
 }
 </style>

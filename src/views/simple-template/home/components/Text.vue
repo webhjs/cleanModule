@@ -27,13 +27,16 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.content
-  font-size 16px
-  line-height 35px
-  letter-spacing 3px
-.indent
-  text-indent: 2em
-.bold
-  font-weight bold
+<style lang="scss" scoped>
+.content {
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 3px;
+}
+.indent {
+  text-indent: 2em;
+}
+.bold {
+  font-weight: bold;
+}
 </style>

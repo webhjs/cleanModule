@@ -392,72 +392,84 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.contain
-  padding: 12px 0
-  .merage-warp
-    display: flex
-    justify-content: space-between
-    height: 290px
-    .merage-left
-      overflow: auto
-      padding: 10px
-      flex: 0 0 35%
-      border: 1px solid #ccc
-      margin-right: 20px
-      display: flex
-      justify-content: space-between
-      .merge-li
-        width: 100%
-        border: 1px solid #ccc
-        .li
-          word-wrap: break-word
-          margin: 0
-          padding: 0 10px
-          width: 100%
-          line-height: 25px
-          min-height: 30px
-          border-bottom: 1px solid #ccc
-          user-select: none
-          position: relative
-          .icon
-            position: absolute
-            right: 3px
-            top: 8px
-            cursor: pointer
-    .merage-right
-      flex: 1
-      height: 100%
-      #diagramContainer
-        position: relative
-        padding: 10px
-        margin: 0 auto
-        height: 100%
-        overflow: scroll
-        border: 1px solid #ccc
-        border-radius: 5px
-        .left,.right
-          display: inline-block
-          width: 25%
-          margin: 0
-          padding: 0
-          border-top: 1px solid #ccc
-        .left
-          position: absolute
-          left: 8px
-        .right
-          position: absolute
-          right: 0
-.item
-  list-style: none
-  word-wrap: break-word
-  margin: 0
-  padding: 0 10px
-  width: 100%
-  line-height: 25px
-  min-height: 30px
-  border-bottom: 1px solid #ccc
-  border-right: 1px solid #ccc
-  border-left: 1px solid #ccc
-  user-select: none
+<style lang="scss" scoped>
+.contain {
+  padding: 12px 0;
+  .merage-warp {
+    display: flex;
+    justify-content: space-between;
+    height: 290px;
+    .merage-left {
+      overflow: auto;
+      padding: 10px;
+      flex: 0 0 35%;
+      border: 1px solid #ccc;
+      margin-right: 20px;
+      display: flex;
+      justify-content: space-between;
+      .merge-li {
+        width: 100%;
+        border: 1px solid #ccc;
+        .li {
+          word-wrap: break-word;
+          margin: 0;
+          padding: 0 10px;
+          width: 100%;
+          line-height: 25px;
+          min-height: 30px;
+          border-bottom: 1px solid #ccc;
+          user-select: none;
+          position: relative;
+          .icon {
+            position: absolute;
+            right: 3px;
+            top: 8px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .merage-right {
+      flex: 1;
+      height: 100%;
+      #diagramContainer {
+        position: relative;
+        padding: 10px;
+        margin: 0 auto;
+        height: 100%;
+        overflow: scroll;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        .left, .right {
+          display: inline-block;
+          width: 25%;
+          margin: 0;
+          padding: 0;
+          border-top: 1px solid #ccc;
+        }
+        .left {
+          position: absolute;
+          left: 8px;
+        }
+        .right {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+.item {
+  list-style: none;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0 10px;
+  width: 100%;
+  line-height: 25px;
+  min-height: 30px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  user-select: none;
+}
 </style>

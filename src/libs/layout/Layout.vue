@@ -306,115 +306,138 @@ export default {
   }
 }
 </script>
-<style scoped lang="stylus">
-.full
-  display: flex
-.flex-full
-  flex: 1
-.relative
-  position relative
+<style scoped lang="scss">
+.full {
+  display: flex;
+}
+.flex-full {
+  flex: 1;
+}
+.relative {
+  position: relative;
+}
 .container {
-  flex: 1
-  display: flex
-  flex-flow column
+  flex: 1;
+  display: flex;
+  flex-flow: column;
 }
 
-.main-container
-  overflow auto
-.top_left_bread
+.main-container {
+  overflow: auto;
+}
+.top_left_bread {
   height: 50px;
   color: #000;
   padding-left: 10px;
-  /deep/ .el-breadcrumb__separator
+  ::v-deep .el-breadcrumb__separator {
     color: #000;
-.app-wrapper
-  position absolute
-  width 100%
-  height 100vh
-  /deep/ .el-scrollbar__wrap
-    overflow-x hidden
-  .containers
-    height 100vh
-    display flex
-    background-color #fefefe
-    &.cloumn-flex
-      flex-flow: column
-    .main-container
-      flex 1
-    &.flex
-      display flex
-  .container-top
-    height calc(100vh - 56px)
-    display flex
-    background-color #fefefe
-    .main-container
-      flex 1
-.two-columns{
-  width: 100%
-  /deep/ .el-radio-button {
-    width: 33%
-    .el-radio-button__inner {
-      width: 100%
+  }
+}
+.app-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  ::v-deep .el-scrollbar__wrap {
+    overflow-x: hidden;
+  }
+  .containers {
+    height: 100vh;
+    display: flex;
+    background-color: #fefefe;
+    &.cloumn-flex {
+      flex-flow: column;
+    }
+    .main-container {
+      flex: 1;
+    }
+    &.flex {
+      display: flex;
+    }
+  }
+  .container-top {
+    height: calc(100vh - 56px);
+    display: flex;
+    background-color: #fefefe;
+    .main-container {
+      flex: 1;
     }
   }
 }
-.three-columns{
-  width: 100%
-  border-left: 1px solid #DCDFE6;
-  /deep/ .el-radio-button {
-    width: 33.3%
+.two-columns {
+  width: 100%;
+  ::v-deep .el-radio-button {
+    width: 33%;
     .el-radio-button__inner {
-      width: 100%
+      width: 100%;
     }
   }
-  /deep/ .el-radio-button:first-child .el-radio-button__inner, /deep/ .el-radio-button:last-child .el-radio-button__inner {
+}
+.three-columns {
+  width: 100%;
+  border-left: 1px solid #DCDFE6;
+  ::v-deep .el-radio-button {
+    width: 33.3%;
+    .el-radio-button__inner {
+      width: 100%;
+    }
+  }
+  ::v-deep .el-radio-button:first-child .el-radio-button__inner, ::v-deep .el-radio-button:last-child .el-radio-button__inner {
     border-left: 0;
     border-radius: 0;
   }
 }
-.main-left
-  height: calc(100vh - 56px)
-  &.flex-full
-    flex: 1
-.main-top {
-  height: calc(100vh - 56px)
+.main-left {
+  height: calc(100vh - 56px);
+  &.flex-full {
+    flex: 1;
+  }
 }
-.main-common{
+.main-top {
+  height: calc(100vh - 56px);
+}
+.main-common {
   display: flex;
   flex-flow: column;
-  .main-content{
-    flex: 1
-    overflow: auto
+  .main-content {
+    flex: 1;
+    overflow: auto;
     position: relative;
   }
 }
-.vertical
-  width auto
-  height 100%
-.vertical
-  /deep/ .el-submenu__icon-arrow
-    right 10px
-.leftno-wrap
-  height: calc(100vh - 56px)
-/deep/ .el-submenu__icon-arrow
-  top 58%
-  right 0
-/deep/ .el-submenu__title:hover
-  background-color transparent
-/deep/ .el-menu-vertical-demo:not(.el-menu--collapse)
-  min-height unset
-  overflow auto
+.vertical {
+  width: auto;
+  height: 100%;
+}
+.vertical {
+  ::v-deep .el-submenu__icon-arrow {
+    right: 10px;
+  }
+}
+.leftno-wrap {
+  height: calc(100vh - 56px);
+}
+::v-deep .el-submenu__icon-arrow {
+  top: 58%;
+  right: 0;
+}
+::v-deep .el-submenu__title:hover {
+  background-color: transparent;
+}
+::v-deep .el-menu-vertical-demo:not(.el-menu--collapse) {
+  min-height: unset;
+  overflow: auto;
+}
 </style>
-<style lang="stylus">
+<style lang="scss">
 .layout-draw .el-drawer__body {
   padding: 0 10px;
 }
-.layout-draw .el-drawer__header{
+.layout-draw .el-drawer__header {
   font-size: 18px;
 }
 .layout-draw .el-radio-button__inner {
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 </style>

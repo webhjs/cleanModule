@@ -75,21 +75,21 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-
-.toolsBar
-  position fixed
-  top 18vh
-  right 1vw
-  width 200px
-  border 1px solid #cdcdcd
-  background #fff
+<style lang="scss" scoped>
+.toolsBar {
+  position: fixed;
+  top: 18vh;
+  right: 1vw;
+  width: 200px;
+  border: 1px solid #cdcdcd;
+  background: #fff;
+}
 
 .icon-box {
-  width 120px
+  width: 120px;
   display: flex;
   flex-direction: column;
-  justify-items center
+  justify-items: center;
   align-items: center;
   cursor: pointer;
 

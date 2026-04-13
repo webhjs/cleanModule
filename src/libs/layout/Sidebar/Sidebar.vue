@@ -99,23 +99,29 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.el-menu
-  height 100%
+<style lang="scss" scoped>
+.el-menu {
+  height: 100%;
   border-right: 0;
-  background-color var(--light)
-.overflowClass
-  height: calc(100% - 55px)
-  overflow: auto
-  /deep/ .el-tooltip
-    text-align center
-    padding: 0!important
+  background-color: var(--light);
+}
+.overflowClass {
+  height: calc(100% - 55px);
+  overflow: auto;
+  ::v-deep .el-tooltip {
+    text-align: center;
+    padding: 0!important;
+  }
+}
 /*隐藏文字*/
-/deep/ .el-menu--collapse .el-submenu__title span
-  display: none
-/deep/ .el-menu--collapse .el-submenu__title .el-submenu__icon-arrow
+::v-deep .el-menu--collapse .el-submenu__title span {
   display: none;
+}
+::v-deep .el-menu--collapse .el-submenu__title .el-submenu__icon-arrow {
+  display: none;
+}
 /*隐藏文字*/
+</style>
 <style>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 256px;
